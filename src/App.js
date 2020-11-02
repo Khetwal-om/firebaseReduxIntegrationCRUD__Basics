@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import CreateProject from './CreateProject'
 import './styles.css'
 
 function App(props) {
@@ -10,7 +11,8 @@ function App(props) {
   console.log(props)
   return (
     <div className="App">
-      lugi
+      <CreateProject />
+
       {projects &&
         projects.map((project) => (
           <div className="firebase" key={project.id}>
