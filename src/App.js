@@ -3,12 +3,15 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import CreateProject from './CreateProject'
+import { removeProject } from './store/actions/projectActions'
 import './styles.css'
 
-function App(props) {
-  const { projects } = props
+const App = ({ projects, removeTask }) => {
+  const handleRemove = (tutorial) => {
+    removeTask(tutorial)
+  }
+
   console.log(projects)
-  console.log(props)
   return (
     <div className="App">
       <CreateProject />
@@ -17,14 +20,21 @@ function App(props) {
         projects.map((project) => (
           <div className="firebase" key={project.id}>
             <div>
-              {project.Image} {project.Instructor}
+              {project.Image} " " {project.id} " "{project.Instructor}
+              <span
+                role="img"
+                aria-label=""
+                onClick={() => handleRemove(project)}
+              >
+                🎃
+              </span>
             </div>
             <div>
               {project.tutorials.map((tutorial) => (
                 <div key={tutorial.id}>
                   <div className="tutorial">
-                    {tutorial.name}
-                    {tutorial.link}
+                    {tutorial.name} {tutorial.link}
+                    {tutorial.id}
                   </div>
                   <div className="flashcards">
                     {tutorial.flashcards &&
@@ -48,11 +58,20 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   console.log(state)
+  console.log('ty')
+  console.log(state.firestore.data.projects)
+  console.log('imho')
   return {
     projects: state.firestore.ordered.projects
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeTask: (tutorial) => dispatch(removeProject(tutorial))
+  }
+}
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([{ collection: 'projects' }])
 )(App)

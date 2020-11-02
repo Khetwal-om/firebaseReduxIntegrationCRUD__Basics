@@ -8,6 +8,12 @@ const projectReducer = (state = initState, action) => {
     case 'CREATE_PROJECT_ERROR':
       console.log('create project error')
       return state
+    case 'REMOVE_PROJECT_SUCCESS':
+      console.log('success')
+      return state
+    case 'REMOVE_PROJECT_ERROR':
+      console.log('project error')
+      return state
     default:
       return state
   }
