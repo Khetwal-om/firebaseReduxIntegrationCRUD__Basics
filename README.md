@@ -1,0 +1,2 @@
+# firebaseReduxIntegrationCRUD__Basics
+Created with CodeSandbox
