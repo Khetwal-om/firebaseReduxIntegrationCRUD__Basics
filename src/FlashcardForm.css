@@ -1,0 +1,7 @@
+.Flashcardform {
+  margin: 0.4rem;
+  padding: 0.822rem;
+  box-shadow: 0 2px 2px #ccc;
+  display: grid;
+  place-items: center;
+}
