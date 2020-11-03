@@ -7,17 +7,39 @@ import FlashcardForm from './FlashcardForm'
 
 class CreateTutorial extends Component {
   state = {
-    name: '',
-    link: '',
+    title: '',
+    tutorialLink: '',
+    video: '',
+    icon: '',
     flashcards: [
       {
         question: '',
+        meaningOne: '',
+        meaningTwo: '',
         explanation: '',
         exampleOne: '',
         exampleTwo: ''
       },
       {
         question: '',
+        meaningOne: '',
+        meaningTwo: '',
+        explanation: '',
+        exampleOne: '',
+        exampleTwo: ''
+      },
+      {
+        question: '',
+        meaningOne: '',
+        meaningTwo: '',
+        explanation: '',
+        exampleOne: '',
+        exampleTwo: ''
+      },
+      {
+        question: '',
+        meaningOne: '',
+        meaningTwo: '',
         explanation: '',
         exampleOne: '',
         exampleTwo: ''
@@ -38,6 +60,21 @@ class CreateTutorial extends Component {
       flashcards
     })
   }
+  meaningOneUpdate = (e, index) => {
+    const flashcards = this.state.flashcards
+    flashcards[index].meaningOne = e.target.value
+    this.setState({
+      flashcards
+    })
+  }
+  meaningTwoUpdate = (e, index) => {
+    const flashcards = this.state.flashcards
+    flashcards[index].meaningTwo = e.target.value
+    this.setState({
+      flashcards
+    })
+  }
+
   exampleOneUpdate = (e, index) => {
     const flashcards = this.state.flashcards
     flashcards[index].exampleOne = e.target.value
@@ -94,6 +131,14 @@ class CreateTutorial extends Component {
                     this.questionUpdate(e, i)
                   }}
                   question={this.state.flashcards[i].question}
+                  meaningOneUpdate={(e) => {
+                    this.meaningOneUpdate(e, i)
+                  }}
+                  meaningOne={this.state.flashcards[i].meaningOne}
+                  meaningTwoUpdate={(e) => {
+                    this.meaningTwoUpdate(e, i)
+                  }}
+                  meaningTwo={this.state.flashcards[i].meaningTwo}
                   explanationUpdate={(e) => {
                     this.explanationUpdate(e, i)
                   }}

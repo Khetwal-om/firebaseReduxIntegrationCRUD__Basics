@@ -19,7 +19,7 @@ const App = ({ projects, singletutorial, removeTask }) => {
         projects.map((project) => (
           <div className="firebase" key={project.id}>
             <div>
-              {project.Image} " " {project.id} " "{project.Instructor}
+              {project.name} " " {project.id} " "{project.youtubeChannel}
               <CreateTutorial />
               <span
                 role="img"
@@ -34,7 +34,7 @@ const App = ({ projects, singletutorial, removeTask }) => {
                 project.tutorials.map((tutorial) => (
                   <div key={tutorial.id}>
                     <div className="tutorial">
-                      {tutorial.name} {tutorial.link}
+                      {tutorial.title} {tutorial.tutorialLink}
                       {tutorial.id}
                     </div>
                     <div className="flashcards">

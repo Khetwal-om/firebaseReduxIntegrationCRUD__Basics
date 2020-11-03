@@ -13,6 +13,18 @@ class FlashcardForm extends React.Component {
         />
         <input
           type="text"
+          placeholder="meaningOne"
+          onChange={this.props.meaningOneUpdate}
+          value={this.props.meaningOne}
+        />
+        <input
+          type="text"
+          placeholder="meaningTwo"
+          onChange={this.props.meaningTwoUpdate}
+          value={this.props.meaningTwo}
+        />
+        <input
+          type="text"
           placeholder="explanation"
           onChange={this.props.explanationUpdate}
           value={this.props.explanation}

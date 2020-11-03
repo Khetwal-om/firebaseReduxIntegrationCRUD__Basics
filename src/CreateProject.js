@@ -5,8 +5,10 @@ import { createProject } from './store/actions/projectActions'
 
 class CreateProject extends Component {
   state = {
-    Image: '',
-    Instructor: ''
+    name: '',
+    youtubeChannel: '',
+    imageOne: '',
+    imageTwo: ''
   }
 
   handleChange = (e) => {
@@ -25,23 +27,42 @@ class CreateProject extends Component {
         <form onSubmit={this.onSubmit} className="white">
           <h5 className=" ">Create</h5>
           <div className="input-field">
-            <label htmlFor="title">Image</label>
+            <label htmlFor="title">name</label>
             <input
               type="text"
-              name="image"
-              id="Image"
+              name="name"
+              id="name"
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="content">Instrucotr</label>
+            <label htmlFor="content">youtubeChannel</label>
             <input
-              name="instructor"
-              id="Instructor"
+              name="youtubeChannel"
+              id="youtubeChannel"
+              onChange={this.handleChange}
+              className="materialize"
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="content">imageOne</label>
+            <input
+              name="imageOne"
+              id="imageOne"
               onChange={this.handleChange}
               className="materialize-textarea"
             />
           </div>
+          <div className="input-field">
+            <label htmlFor="content">imageTwo</label>
+            <input
+              name="imageTwo"
+              id="imageTwo"
+              onChange={this.handleChange}
+              className="materialize-textarea"
+            />
+          </div>
+
           <div className="input-field">
             <button className="btn">Create</button>
           </div>
