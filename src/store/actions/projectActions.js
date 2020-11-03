@@ -33,7 +33,27 @@ export const removeProject = (project) => {
       .doc(project.id)
       .set({
         ...project,
-        tutorials: [...tutorials, { name: 'mango' }]
+        tutorials: [
+          ...tutorials,
+          {
+            link: 'linkAddress',
+            name: 'mango',
+            flashcards: [
+              {
+                question: 'answer',
+                explanation: 'overview',
+                exampleOne: 'example One',
+                exampleTwo: 'Example Two'
+              },
+              {
+                question: 'answer',
+                explanation: 'overview',
+                exampleOne: 'example One',
+                exampleTwo: 'Example Two'
+              }
+            ]
+          }
+        ]
       })
 
       .then(() => {
