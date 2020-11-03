@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { createProject } from './store/actions/projectActions'
+import { createsingleTutorial } from './store/actions/projectActions'
+import './CreateTutorial.css'
 
-class CreateProject extends Component {
+class CreateTutorial extends Component {
   state = {
-    Image: '',
-    Instructor: ''
+    name: '',
+    link: '',
+    flashcards: []
   }
 
   handleChange = (e) => {
@@ -16,8 +18,8 @@ class CreateProject extends Component {
   }
   onSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
-    this.props.createProject(this.state)
+    console.log(this.props, 'props passsssesd')
+    this.props.singletonTutorial(this.state)
   }
   render() {
     return (
@@ -25,21 +27,21 @@ class CreateProject extends Component {
         <form onSubmit={this.onSubmit} className="white">
           <h5 className=" ">Create</h5>
           <div className="input-field">
-            <label htmlFor="title">Image</label>
+            <label htmlFor="title">name</label>
             <input
               type="text"
-              name="image"
-              id="Image"
+              name="name"
+              id="name"
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="content">Instrucotr</label>
+            <label htmlFor="content">lLink</label>
             <input
-              name="instructor"
-              id="Instructor"
+              name="link"
+              type="text"
+              id="link"
               onChange={this.handleChange}
-              className="materialize-textarea"
             />
           </div>
           <div className="input-field">
@@ -51,13 +53,13 @@ class CreateProject extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state, 'from createproject 🚀💋')
   return state
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    createProject: (instructor) => dispatch(createProject(instructor))
+    singletonTutorial: (singletutorial) =>
+      dispatch(createsingleTutorial(singletutorial))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProject)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateTutorial)

@@ -2,9 +2,7 @@ export const createProject = (project) => {
   return (dispatch, getState, { getFirestore }) => {
     // make async call to database
     const firestore = getFirestore()
-    console.log('memezar 🎀')
-    console.log(getState())
-    console.log('eli5 ✨')
+    console.log(getState(), 'create instructor')
     firestore
       .collection('projects')
       .add({
@@ -20,40 +18,18 @@ export const createProject = (project) => {
   }
 }
 
-export const removeProject = (project) => {
+export const removeProject = (project, singletutorial) => {
   return (dispatch, getState, { getFirestore }) => {
     // make async call to database
     const firestore = getFirestore()
-    console.log('memezar 🎀')
     const { tutorials } = project
-    // tutorials.push(['eli5 ✨', 'eli5 ✨', 'eli5 ✨', 'eli5 ✨'])
-    console.log('eli5 ✨')
+
     firestore
       .collection('projects')
       .doc(project.id)
       .set({
         ...project,
-        tutorials: [
-          ...tutorials,
-          {
-            link: 'linkAddress',
-            name: 'mango',
-            flashcards: [
-              {
-                question: 'answer',
-                explanation: 'overview',
-                exampleOne: 'example One',
-                exampleTwo: 'Example Two'
-              },
-              {
-                question: 'answer',
-                explanation: 'overview',
-                exampleOne: 'example One',
-                exampleTwo: 'Example Two'
-              }
-            ]
-          }
-        ]
+        tutorials: tutorials ? [...tutorials, singletutorial] : [singletutorial]
       })
 
       .then(() => {
@@ -62,5 +38,12 @@ export const removeProject = (project) => {
       .catch((err) => {
         dispatch({ type: 'REMOVE_PROJECT_ERROR' }, err)
       })
+  }
+}
+
+export const createsingleTutorial = (singletutorial) => {
+  return (dispatch, getState) => {
+    console.log(getState().singletutorial, 'getstate 🚀 from createsingle')
+    dispatch({ type: 'POPULATE_TUTORIAL', payload: singletutorial })
   }
 }
