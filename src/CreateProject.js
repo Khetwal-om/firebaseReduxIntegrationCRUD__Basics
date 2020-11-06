@@ -7,8 +7,13 @@ class CreateProject extends Component {
   state = {
     name: '',
     youtubeChannel: '',
+    youtubeChannelName: '',
     imageOne: '',
-    imageTwo: ''
+    imageTwo: '',
+    twitterAccount: '',
+    website: '',
+    quote: '',
+    starkLine: ''
   }
 
   handleChange = (e) => {
@@ -30,16 +35,47 @@ class CreateProject extends Component {
             <label htmlFor="title">name</label>
             <input
               type="text"
-              name="name"
+              placeholder="name"
               id="name"
               onChange={this.handleChange}
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="content">website</label>
+            <input
+              name="website"
+              placeholder="website"
+              id="website"
+              onChange={this.handleChange}
+              className="materialize"
             />
           </div>
           <div className="input-field">
             <label htmlFor="content">youtubeChannel</label>
             <input
               name="youtubeChannel"
+              placeholder="youtubeChannel"
               id="youtubeChannel"
+              onChange={this.handleChange}
+              className="materialize"
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="content">youtubeChannelName</label>
+            <input
+              name="youtubeChannelName"
+              placeholder="youtubeChannelName"
+              id="youtubeChannelName"
+              onChange={this.handleChange}
+              className="materialize"
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="content">twitterAccount</label>
+            <input
+              name="youtubeChannel"
+              placeholder="twitterAccount"
+              id="twitterAccount"
               onChange={this.handleChange}
               className="materialize"
             />
@@ -48,6 +84,7 @@ class CreateProject extends Component {
             <label htmlFor="content">imageOne</label>
             <input
               name="imageOne"
+              placeholder="imageOne"
               id="imageOne"
               onChange={this.handleChange}
               className="materialize-textarea"
@@ -57,12 +94,32 @@ class CreateProject extends Component {
             <label htmlFor="content">imageTwo</label>
             <input
               name="imageTwo"
+              placeholder="imageTwo"
               id="imageTwo"
               onChange={this.handleChange}
               className="materialize-textarea"
             />
           </div>
-
+          <div className="input-field">
+            <label htmlFor="content">quote</label>
+            <input
+              name="quote"
+              placeholder="quote"
+              id="quote"
+              onChange={this.handleChange}
+              className="materialize"
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="content">starkLine</label>
+            <input
+              name="starkLine"
+              placeholder="starkLine"
+              id="starkLine"
+              onChange={this.handleChange}
+              className="materialize"
+            />
+          </div>
           <div className="input-field">
             <button className="btn">Create</button>
           </div>

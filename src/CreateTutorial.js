@@ -43,6 +43,23 @@ class CreateTutorial extends Component {
         explanation: '',
         exampleOne: '',
         exampleTwo: ''
+      },
+      {
+        question: '',
+        meaningOne: '',
+        meaningTwo: '',
+        explanation: '',
+        exampleOne: '',
+        exampleTwo: ''
+      },
+
+      {
+        question: '',
+        meaningOne: '',
+        meaningTwo: '',
+        explanation: '',
+        exampleOne: '',
+        exampleTwo: ''
       }
     ]
   }
@@ -106,23 +123,46 @@ class CreateTutorial extends Component {
         <form onSubmit={this.onSubmit} className="white">
           <h5 className=" ">Create</h5>
           <div className="input-field">
-            <label htmlFor="title">name</label>
+            <label htmlFor="title">title</label>
             <input
               type="text"
               name="name"
-              id="name"
+              placeholder="title"
+              id="title"
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="content">lLink</label>
+            <label htmlFor="content">link</label>
             <input
               name="link"
               type="text"
-              id="link"
+              placeholder="tutorialLink"
+              id="tutorialLink"
               onChange={this.handleChange}
             />
           </div>
+          <div className="input-field">
+            <label htmlFor="content">video</label>
+            <input
+              name="video"
+              placeholder="video"
+              type="text"
+              id="video"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="content">icon</label>
+            <input
+              name="icon"
+              placeholder="icon"
+              type="text"
+              id="icon"
+              onChange={this.handleChange}
+            />
+          </div>
+
           <div className="App">
             {this.state.flashcards.map((phone, i) => {
               return (

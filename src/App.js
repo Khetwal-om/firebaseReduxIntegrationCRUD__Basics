@@ -11,10 +11,11 @@ const App = ({ projects, singletutorial, removeTask }) => {
   const handleRemove = (tutorial, singletutorial) => {
     removeTask(tutorial, singletutorial)
   }
+  console.log(projects)
   return (
     <div className="App">
       <CreateProject />
-
+      data
       {projects &&
         projects.map((project) => (
           <div className="firebase" key={project.id}>
@@ -60,7 +61,7 @@ const App = ({ projects, singletutorial, removeTask }) => {
 const mapStateToProps = (state, ownProps) => {
   console.log(state.singletutorial, 'here it is 🤣')
   return {
-    projects: state.firestore.ordered.projects,
+    projects: state.firestore.ordered.instructors,
     singletutorial: state.singletutorial
   }
 }
@@ -73,5 +74,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect([{ collection: 'projects' }])
+  firestoreConnect([{ collection: 'instructors' }])
 )(App)

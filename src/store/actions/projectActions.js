@@ -4,7 +4,7 @@ export const createProject = (project) => {
     const firestore = getFirestore()
     console.log(getState(), 'create instructor')
     firestore
-      .collection('projects')
+      .collection('instructors')
       .add({
         ...project,
         tutorials: []
@@ -25,7 +25,8 @@ export const removeProject = (project, singletutorial) => {
     const { tutorials } = project
 
     firestore
-      .collection('projects')
+
+      .collection('instructors')
       .doc(project.id)
       .set({
         ...project,
